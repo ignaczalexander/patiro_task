@@ -31,7 +31,7 @@ nav {
 }
 .title {
   font-size: 1.25rem;
-  color: $primary_color;
+  // color: $primary_color;
 }
 ul {
   list-style-type: none;

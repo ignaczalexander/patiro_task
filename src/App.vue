@@ -29,4 +29,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.vue-slider-process {
+  background-color: $primary_color !important;
+}
+.vue-slider-dot-tooltip-inner {
+  border-color: $primary_color !important;
+  background-color: $primary_color !important;
+}
 </style>
