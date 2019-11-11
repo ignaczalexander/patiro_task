@@ -97,6 +97,6 @@ button {
   }
 }
 .allowed {
-  background-color: rgb(205, 250, 208);
+  background-color: rgb(212, 255, 215);
 }
 </style>
