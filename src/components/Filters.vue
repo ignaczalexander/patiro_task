@@ -1,7 +1,7 @@
 <template>
   <div class="filters-container">
     <div class="age-selector">
-      <div>Age</div>
+      <div class="filter-title">Age</div>
       <vue-slider
         :min="minAge"
         :max="maxAge"
@@ -9,18 +9,24 @@
         v-model="age"
         :enable-cross="false"
         :lazy="true"
+        :contained="true"
       ></vue-slider>
       <div class="age-values">
-        <div>{{age[0]}}</div>
-        <div>{{age[1]}}</div>
+        <div>{{age[0]}} - {{age[1]}}</div>
       </div>
     </div>
+    <div class="filter-title">Gender</div>
     <div class="gender-filter">
-      <input @change="onChangeFilter" type="checkbox" id="male-box" v-model="maleChecked" />
-      <label for="male-box">Male</label>
-      <input @change="onChangeFilter" type="checkbox" id="female-box" v-model="femaleChecked" />
-      <label for="female-box">Female</label>
+      <span class="gender-item">
+        <input @change="onChangeFilter" type="checkbox" id="male-box" v-model="maleChecked" />
+        <label for="male-box">Male</label>
+      </span>
+      <span class="gender-item">
+        <input @change="onChangeFilter" type="checkbox" id="female-box" v-model="femaleChecked" />
+        <label for="female-box">Female</label>
+      </span>
     </div>
+    <div class="filter-title">Country</div>
     <div class="countries-filter">
       <label :key="country" v-for="country in possibleCountries">
         <input
@@ -106,9 +112,10 @@ export default {
 
 <style lang="scss" scoped>
 .filters-container {
-  //   border: 1px solid rgb(228, 228, 228);
-  //   border-radius: 3px;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.filter-title {
+  font-weight: 700;
 }
 .age-selector {
   margin-bottom: 1rem;
@@ -123,8 +130,13 @@ export default {
 .gender-filter {
   margin-bottom: 1rem;
 }
+.gender-item:first-child {
+  margin-right: 1rem;
+}
 .countries-filter {
   margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   label {
     margin-right: 1.25rem;
   }
