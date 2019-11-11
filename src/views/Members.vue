@@ -38,11 +38,9 @@ export default {
   methods: {
     ...mapActions(["fetchMembers"]),
     openModal() {
-      console.log("open modal");
       this.modalOpen = true;
     },
     closeModal() {
-      console.log("close modal");
       this.modalOpen = false;
     }
   },

@@ -50,11 +50,9 @@ const actions = {
         const response = await axios.get(
           `https://www.patiro.com/test/${id}.json`
         );
-        console.log('resp', response.data.member);
         commit('setCurrentMember', response.data.member);
         commit('setCurrentMemberResponses', response.data.surveyResponses);
       } catch (error) {
-        console.log('err', error);
         commit('setCurrentMember', {});
       }
     } else {
@@ -62,15 +60,12 @@ const actions = {
     }
   },
   sortMembers({ commit, state }, sortingProp) {
-    console.log('sorting by', sortingProp);
     let sortedMembers = state.filteredMembers;
     switch (sortingProp) {
       case 'nameAsc':
-        console.log('in name asc');
         sortedMembers = utils.sortByString(sortedMembers, 'fullName', 'asc');
         break;
       case 'nameDesc':
-        console.log('in name desc');
         sortedMembers = utils.sortByString(sortedMembers, 'fullName', 'desc');
         break;
       case 'ageAsc':
@@ -85,14 +80,10 @@ const actions = {
     commit('setSortedMembers', sortedMembers);
   },
   filterMembers({ commit, state, getters }, filtersData) {
-    console.log('filter', filtersData);
     const maxAge = getters.maxAge;
     const minAge = getters.minAge;
-    console.log('minage', minAge);
-    console.log('maxage', maxAge);
     let filteredMembers = state.members;
     if (filtersData.countries.length) {
-      console.log('filter countrie', filtersData.countries);
       filteredMembers = filteredMembers.filter(member => {
         if (!member.country) return false;
         return filtersData.countries.includes(member.country.name);
@@ -113,7 +104,6 @@ const actions = {
       });
     }
     if (filtersData.minAge !== minAge || filtersData.maxAge !== maxAge) {
-      console.log('age changed');
       filteredMembers = filteredMembers.filter(member => {
         if (!member.age) {
           return false;

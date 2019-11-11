@@ -34,7 +34,6 @@ export default {
   methods: {
     ...mapActions(["fetchSurveys", "sortSurveys"]),
     onChangeSort() {
-      console.log("sort changed", this.sortBy);
       this.sortSurveys(this.sortBy);
     }
   },

@@ -94,7 +94,6 @@ export default {
     },
     age: {
       get() {
-        console.log("geettting age", this.minAge, this.maxAge);
         return this.ageProxy ? this.ageProxy : [this.minAge, this.maxAge];
       },
       set(val) {

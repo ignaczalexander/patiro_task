@@ -11,7 +11,6 @@ const actions = {
     const response = await axios.get(
       'https://www.patiro.com/test/surveys.json'
     );
-    console.log('surv', response.data);
     commit('setSurveys', response.data);
   },
   sortSurveys({ commit, state }, sortingParam) {
