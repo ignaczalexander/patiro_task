@@ -51,7 +51,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .container {
-  padding: 1.5rem;
+  padding: 2rem 1rem 1rem;
   margin: auto;
   max-width: $max_width;
 }

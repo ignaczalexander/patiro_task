@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 1.5rem;
+  padding: 2rem 1rem 1rem;
   max-width: $max_width;
   margin: auto;
 }
