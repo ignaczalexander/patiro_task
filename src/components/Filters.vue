@@ -126,7 +126,7 @@ export default {
   margin-bottom: 0.25rem;
 }
 .age-selector {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   .age-values {
     display: flex;
     justify-content: space-between;
@@ -136,14 +136,14 @@ export default {
   }
 }
 .gender-filter {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   display: flex;
 }
 .gender-item:first-child {
   margin-right: 1.5rem;
 }
 .countries-filter {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   // label {
