@@ -40,6 +40,7 @@ h2 {
   text-align: center;
   padding: 1rem;
   margin: 0;
+  margin-right: 0.75rem;
   cursor: pointer;
 }
 

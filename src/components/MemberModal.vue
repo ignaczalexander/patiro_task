@@ -100,13 +100,13 @@ export default {
 }
 
 .modal-container {
-  width: 80%;
+  width: 90%;
   box-sizing: border-box;
   max-width: 500px;
   height: 80vh;
   background-color: white;
   border-radius: 3px;
-  padding: 2rem;
+  padding: 1.5rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -151,11 +151,8 @@ export default {
 }
 
 .row {
-  display: flex;
-
-  .info-item:first-child {
-    margin-right: 1rem;
-  }
+  display: grid;
+  grid-template-columns: 70px 70px;
 }
 
 .btn-close {
