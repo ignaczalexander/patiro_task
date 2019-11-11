@@ -17,18 +17,24 @@
     </div>
     <div class="filter-title">Gender</div>
     <div class="gender-filter">
-      <span class="gender-item">
-        <input @change="onChangeFilter" type="checkbox" id="male-box" v-model="maleChecked" />
-        <label for="male-box">Male</label>
-      </span>
-      <span class="gender-item">
-        <input @change="onChangeFilter" type="checkbox" id="female-box" v-model="femaleChecked" />
-        <label for="female-box">Female</label>
-      </span>
+      <div class="gender-item">
+        <label class="checkbox-container">
+          <input @change="onChangeFilter" type="checkbox" id="male-box" v-model="maleChecked" />
+          Male
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="gender-item">
+        <label class="checkbox-container">
+          <input @change="onChangeFilter" type="checkbox" id="female-box" v-model="femaleChecked" />
+          Female
+          <span class="checkmark"></span>
+        </label>
+      </div>
     </div>
     <div class="filter-title">Country</div>
     <div class="countries-filter">
-      <label :key="country" v-for="country in possibleCountries">
+      <label class="checkbox-container" :key="country" v-for="country in possibleCountries">
         <input
           @change="onChangeFilter"
           type="checkbox"
@@ -37,6 +43,7 @@
           v-model="checkedCountries"
         />
         {{country}}
+        <span class="checkmark"></span>
       </label>
     </div>
     <div class="sort-container">
@@ -116,6 +123,7 @@ export default {
 }
 .filter-title {
   font-weight: 700;
+  margin-bottom: 0.25rem;
 }
 .age-selector {
   margin-bottom: 1rem;
@@ -129,23 +137,80 @@ export default {
 }
 .gender-filter {
   margin-bottom: 1rem;
+  display: flex;
 }
 .gender-item:first-child {
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 .countries-filter {
   margin-bottom: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  label {
-    margin-right: 1.25rem;
-  }
+  // label {
+  //   margin-right: 1.25rem;
+  // }
 }
 .sort-container {
   display: flex;
   justify-content: flex-end;
 }
-.raiiiil {
-  background-color: red;
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: $bg_light_gray;
+}
+
+// .checkbox-container:hover input ~ .checkmark {
+//   background-color: $bg_light_gray;
+// }
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: $primary_color;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 </style>
